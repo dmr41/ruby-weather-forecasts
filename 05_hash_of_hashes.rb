@@ -209,8 +209,6 @@ forecast = [
 # http://www.ruby-doc.org/core-2.1.5/Hash.html#method-i-values
 forecast.each do |all|
   temp_range = []
-  all["temperatures"].each do |temp_time, temp_reading |
-    temp_range << temp_reading
-  end
+  all["temperatures"].each { |temp_time, temp_reading | temp_range << temp_reading}
   puts "#{all["day"]}: High of #{temp_range.max}, Low of #{temp_range.min}"
 end
